@@ -2,6 +2,7 @@
 # any non-lower case alphabet (A..Z) to corresponding lower case
 # alphabet
 def lower_case(words)
+  return words.map{|w| w.down_case}
   raise NotImplementedError # TODO
 end
 
@@ -18,7 +19,7 @@ end
 # words_with_prefix('apple', ['apple', 'ball', 'applesauce']) would
 # return the words 'apple' and 'applesauce'.
 def words_with_prefix(prefix, words)
-  raise NotImplementedError # TODO
+  raise NotImplementedError
 end
 
 # The similarity score between two words is defined as the length of
