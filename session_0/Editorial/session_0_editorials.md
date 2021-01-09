@@ -85,8 +85,6 @@ end
  - instead of using a tradional for loop we use range construct to populate the array, followed by map! to modify the array in place
  - instead of using ==0 to check divisbility we use in-built function .zero? 
  - All this helps improve the readablity of the code and makes it easier to debug, and maintain on the long run.
-
- NOTE: All this is just my [@addhyanmalhotra] opinion, feel free to recommend any changes/suggestions. 
  
 ## Word Processing
 
@@ -145,7 +143,7 @@ In this function, we first find the size of the smaller word because we will ite
 ```ruby
 def most_similar_words(chosen_word, words)
   max_similar=0
-  arr=[]
+  arr=Array.new
 	words.each do |word|
 		score=similarity_score(word,chosen_word)
 		if score > max_similar
@@ -202,12 +200,8 @@ The function is pretty self explainatory. Time.now returns the current time and 
 ### Solution
 ```ruby
 def self.stock_price_by_category(items)
-    total = {
-      1=>0,
-      2=>0,
-      3=>0,
-      4=>0
-    }
+    #initialize hash with default value as 0
+    total = Hash.new(0)
     items.each do |item|
       total[item.category_id]+=item.current_price * item.quantity
     end
@@ -218,15 +212,14 @@ def self.stock_price_by_category(items)
 We first define a Hash whose keys refer to the category id of the items, and the key maps to the value which is the total stock price. Now we iterate through each item and calculate the stock price and store it in the corresponding key.
 
 ## Submitting for review
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
+You can submit your code for review by following these 5 quick steps
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b <your_name>_session_0`)
 3. Commit your Changes (`git commit -m 'completed bla bla bla task'`)
 4. Push to the Branch (`git push --set-upsream <your_name>_session_0`)
 5. Open a Pull Request
 
+##### NOTE: All this is just our ( ()[@addhyanmalhotra] | ()[@gaurav2699]) approach to the problemset, feel free to recommend any changes.
 
 
 <!-- LICENSE -->
@@ -242,13 +235,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Project Link: [https://github.com/IRIS-NITK/IRIS-RoR-Bootcamp-2020](https://github.com/IRIS-NITK/IRIS-RoR-Bootcamp-2020)
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
 
 
 
