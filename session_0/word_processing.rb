@@ -2,7 +2,6 @@
 # any non-lower case alphabet (A..Z) to corresponding lower case
 # alphabet
 def lower_case(words)
-  return words.map{|w| w.down_case}
   raise NotImplementedError # TODO
 end
 
