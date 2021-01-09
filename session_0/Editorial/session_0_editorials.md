@@ -161,6 +161,61 @@ end
 #### Explaination
 In this function we use the previous function similarity_score to calculate the similarity score between the choosen_word and each word of the words array. 
 
+## Items
+### TASK AT HAND
+- Our first task is to store quantity of the item , so the company can keep track of items which need to be re-stocked. 
+### Solution
+```ruby
+  attr_accessor :name, :price, :category_id, :discount_rate,
+    :discount_deadline, :quantity
+```
+### Explaination
+We add :quantity to the attr_accessor. If you are familiar with OOP concept, You must be familiar with getter and setter method. attr_accessor does the same in Ruby. 
+### TASK AT HAND
+- Now we have to write a function which returns a boolean value whether the item is discounted i.e. the discount deadline has been crossed or not.
+### Solution
+```ruby
+  def discounted?
+    return @discount_deadline>=Time.now
+  end
+```
+### Explaination
+The function is pretty self explainatory. Time.now returns the current time and date.
+
+### TASK AT HAND
+- We have to write a function which returns the current price
+### Solution
+```ruby
+  def current_price
+    if discounted?
+      return @price * (100 - @discount_rate)/100
+  else
+    return @price
+  end
+  end
+```
+### Explaination
+- We first check whether the item is eligible for discount, if it is then we do the calculation to find the new price. 
+
+### TASK AT HAND
+- We have to write a function which calculates the stock price by category.
+### Solution
+```ruby
+def self.stock_price_by_category(items)
+    total = {
+      1=>0,
+      2=>0,
+      3=>0,
+      4=>0
+    }
+    items.each do |item|
+      total[item.category_id]+=item.current_price * item.quantity
+    end
+    return total
+  end
+```
+### Explaination
+We first define a Hash whose keys refer to the category id of the items, and the key maps to the value which is the total stock price. Now we iterate through each item and calculate the stock price and store it in the corresponding key.
 
 ## Submitting for review
 
