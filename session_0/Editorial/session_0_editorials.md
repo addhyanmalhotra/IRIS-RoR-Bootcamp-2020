@@ -219,7 +219,7 @@ You can submit your code for review by following these 5 quick steps
 4. Push to the Branch (`git push --set-upsream <your_name>_session_0`)
 5. Open a Pull Request
 
-##### NOTE: All this is just our ( ()[@addhyanmalhotra] | ()[@gaurav2699]) approach to the problemset, feel free to recommend any changes.
+##### NOTE: All this is just our ( [https://github.com/addhyanmalhotra] | [https://github.com/gaurav2699]) approach to the problemset, feel free to recommend any changes.
 
 
 <!-- LICENSE -->
