@@ -88,8 +88,78 @@ end
 
  NOTE: All this is just my [@addhyanmalhotra] opinion, feel free to recommend any changes/suggestions. 
  
+## Word Processing
 
+### 1. lower_case function
+#### Solution 
+``` ruby
+def lower_case(words)
+  return words.map{ |word| word.downcase }
+end
+```
+#### Explaination
+The logic of this function is pretty self explainatory. The function .map allocates a new array of the length of the original array and pushes the values that are used into this array. 
 
+### 2. lower_case! function
+#### Solution
+``` ruby
+def lower_case!(words)
+  words.map!{ |word| word.downcase}
+  return nil
+end
+```
+#### Explaination
+The logic of this function is very similar to the previous function but we need to modify the array in place and thus we use .map! instead of .map.The function .map! stores the value in the inital array itself.
+
+### 3. words_with_prefix function
+#### Solution
+``` ruby
+def words_with_prefix(prefix, words)
+  return words.select{ |word| word.start_with?(prefix)}
+end
+```
+#### Explaination
+This function uses the select method. Select is used when you want to filter a list & get an array with the results. Hence, this method filters the list with all the words that starts with the prefix.
+
+### 4. similarity_score function
+#### Solution
+```ruby
+def similarity_score(word_1, word_2)
+  length = [word_1.size, word_2.size].min
+  similarity=0
+  for i in 0..length-1
+    if word_1[i].downcase == word_2[i].downcase
+      similarity+=1
+    else
+      break
+    end
+  end
+  return similarity
+end
+```
+#### Explaination
+In this function, we first find the size of the smaller word because we will iterate that number times at max. Now, we increment the similarity variable when the characters match and we break out of the loop when it doesnt. The similarity variable gives the similarity score.
+
+### 5. most_similar_words function
+#### Solution
+```ruby
+def most_similar_words(chosen_word, words)
+  max_similar=0
+  arr=[]
+	words.each do |word|
+		score=similarity_score(word,chosen_word)
+		if score > max_similar
+			max_similar=score
+			arr=[word]
+		elsif score == max_similar
+			arr.push(word)
+		end
+	end
+	return arr
+end
+```
+#### Explaination
+In this function we use the previous function similarity_score to calculate the similarity score between the choosen_word and each word of the words array. 
 
 
 ## Submitting for review
