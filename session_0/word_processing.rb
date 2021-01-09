@@ -18,7 +18,7 @@ end
 # words_with_prefix('apple', ['apple', 'ball', 'applesauce']) would
 # return the words 'apple' and 'applesauce'.
 def words_with_prefix(prefix, words)
-  raise NotImplementedError
+  raise NotImplementedError # TODO
 end
 
 # The similarity score between two words is defined as the length of
